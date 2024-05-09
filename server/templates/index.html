@@ -52,20 +52,62 @@
     </div>
     <div id="main" class="container-fluid">
         <div id="viaParameters" class="options">
-            <h>Por Parametros</h>
+            <h1>Por Parametros</h1>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="zitaEnabled">
+                <label class="form-check-label" for="zitaEnabled">ζ</label>
+                <input type="text" name="datetimes" class="form-control" id="zitaValue" disabled />
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="trEnabled">
+                <label class="form-check-label" for="trEnabled">tr</label>
+                <input type="text" name="datetimes" class="form-control" id="trValue" disabled />
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="tpEnabled">
+                <label class="form-check-label" for="tpEnabled">tp</label>
+                <input type="text" name="datetimes" class="form-control" id="tpValue" disabled />
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="teEnabled">
+                <label class="form-check-label" for="teEnabled">te</label>
+                <input type="text" name="datetimes" class="form-control" id="teValue" disabled />
+              </div>
+
+            <button id="sendParams" class="btn btn-outline-dark" onclick="sendParams()">Mandar a Controlador</button> 
         </div>
         <div id="viaTuning" class="options">
-            <h>Por Tuning</h>
+            <h1>Tuning</h1>
+            <div class="form-check">
+                <label class="form-check-label" for="zitaEnabled">K Proporcional</label>
+                <input type="text" name="datetimes" class="form-control" id="kpValue" />
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="zitaEnabled">K Integral</label>
+                <input type="text" name="datetimes" class="form-control" id="kiValue" />
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="zitaEnabled">K Diferencial</label>
+                <input type="text" name="datetimes" class="form-control" id="kdValue" />
+            </div>
+            <button id="sendTuning" class="btn btn-outline-dark">Mandar a Controlador</button> 
         </div>
         <div id="viaOpenLoop" class="options">
-            <h>Por Manual</h>
+            <h1>Control Manual</h1>
+            <label for="customRange1" class="form-label">PWM</label>
+            <input type="range" class="form-range" id="customRange1">
+            <button id="sendManual" class="btn btn-outline-dark">Mandar a Controlador</button> 
         </div>
 
     </div>
+    <img class="PIDgraph" src="static/respuestaPI.png" alt="Respuesta del Controlador">
 
 
 
-    <script src="static/index.js"></script>
+    <script src="static/params.js"></script>
+    <script src="static/controls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 

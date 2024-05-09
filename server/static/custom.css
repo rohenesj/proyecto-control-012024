@@ -9,3 +9,11 @@
     overflow-x: hidden;
     padding-top: 60px;
   }
+
+  .PIDgraph {
+    position: absolute;
+    height: 50%;
+    right:0;
+    top:1;
+    margin-top: 75px
+}
