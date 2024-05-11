@@ -53,27 +53,38 @@
     <div id="main" class="container-fluid">
         <div id="viaParameters" class="options">
             <h1>Por Parametros</h1>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="pCheck" value="option1">
+                <label class="form-check-label" for="pCheck">P</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="iCheck" value="option2">
+                <label class="form-check-label" for="iCheck">I</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="dCheck" value="option3">
+                <label class="form-check-label" for="dCheck">D</label>
+              </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="zitaEnabled">
-                <label class="form-check-label" for="zitaEnabled">ζ</label>
-                <input type="text" name="datetimes" class="form-control" id="zitaValue" disabled />
+                <h>Mp</h>
+                <input type="number" name="datetimes" class="form-control" id="mpValue" min="1" max="100" />
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="trEnabled">
+                <input class="form-check-input" type="radio" name="paramSelect" value="" id="trEnabled">
                 <label class="form-check-label" for="trEnabled">tr</label>
-                <input type="text" name="datetimes" class="form-control" id="trValue" disabled />
+                <input type="number" name="datetimes" class="form-control" id="trValue" disabled />
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="tpEnabled">
+                <input class="form-check-input" type="radio"  name="paramSelect" value="" id="tpEnabled">
                 <label class="form-check-label" for="tpEnabled">tp</label>
-                <input type="text" name="datetimes" class="form-control" id="tpValue" disabled />
+                <input type="number" name="datetimes" class="form-control" id="tpValue" disabled />
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="teEnabled">
+                <input class="form-check-input" type="radio"  name="paramSelect" value="" id="teEnabled">
                 <label class="form-check-label" for="teEnabled">te</label>
-                <input type="text" name="datetimes" class="form-control" id="teValue" disabled />
+                <input type="number" name="datetimes" class="form-control" id="teValue" disabled />
               </div>
 
             <button id="sendParams" class="btn btn-outline-dark" onclick="sendParams()">Mandar a Controlador</button> 
@@ -81,15 +92,15 @@
         <div id="viaTuning" class="options">
             <h1>Tuning</h1>
             <div class="form-check">
-                <label class="form-check-label" for="zitaEnabled">K Proporcional</label>
+                <label class="form-check-label" for="kpValue">K Proporcional</label>
                 <input type="text" name="datetimes" class="form-control" id="kpValue" />
             </div>
             <div class="form-check">
-                <label class="form-check-label" for="zitaEnabled">K Integral</label>
+                <label class="form-check-label" for="kiValue">K Integral</label>
                 <input type="text" name="datetimes" class="form-control" id="kiValue" />
             </div>
             <div class="form-check">
-                <label class="form-check-label" for="zitaEnabled">K Diferencial</label>
+                <label class="form-check-label" for="kdValue">K Diferencial</label>
                 <input type="text" name="datetimes" class="form-control" id="kdValue" />
             </div>
             <button id="sendTuning" class="btn btn-outline-dark">Mandar a Controlador</button> 
