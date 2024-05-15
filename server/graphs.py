@@ -13,7 +13,7 @@ def make():
     ki = float(params["ki"])
     kd = float(params["kd"])
 
-    time = np.linspace(0,6,500)
+    time = np.linspace(0,2,500)
 
     num = [k]
     den = [tau, 1]

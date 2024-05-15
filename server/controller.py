@@ -1,16 +1,16 @@
 import numpy as np
 
 def calc(mode,c,params,pwm):
-    k = 1.17
-    tau = 1.34
+    k = 3/255
+    tau = 0.4
     tr, tp, te, zita, omega = params[1], params[2], params[3], params[4], params[5]
     kp, ki, kd = 0, 0, 0
     
     
     if c == "PID":
-        p1 = np.sqrt(4*(omega**2)*(zita**2 + tau -1)-(4*omega*zita)+ 1)
-        a = -1*(p1 - 2*omega*zita + 1)/(2*(omega**2))
-        b = (p1 + 2*omega*zita - 1)/(2*(omega**2))
+        p1 = np.sqrt(4*(omega**2)*(zita**2 + tau -1 + 0j)-(4*omega*zita)+ 1)
+        a = np.real(-1*(p1 - 2*omega*zita + 1)/(2*(omega**2)))
+        b = np.real((p1 + 2*omega*zita - 1)/(2*(omega**2)))
         kc = (omega**2)/k
         kp = round(kc*(a+b),3)
         ki = round(kc,3)
