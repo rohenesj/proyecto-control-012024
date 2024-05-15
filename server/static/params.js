@@ -90,7 +90,21 @@ function sendParams() {
             },
             success: function(response){
                 // Display response from server (for demonstration)
-                alert(response);
+                let timestamp = new Date().getTime();
+                let imgUpdate = 'static/respuestaActual.png' + '?timestamp=' + timestamp;
+                let imgElement = $('<img>');
+                $("#zita").text("ζ: " + response.zita);
+                $("#omega").text("ω: " + response.omega);
+                $("#tr").text("tr: " + response.tr);
+                $("#tp").text("tp: " + response.tp);
+                $("#te").text("te: " + response.te);
+                $("#Kp").text("Kp: " + response.kp);
+                $("#Ki").text("Ki: " + response.ki);
+                $("#Kd").text("Kd: " + response.kd);
+                imgElement.attr('src', imgUpdate);
+                $('#PIDimage').empty();
+                $('#PIDimage').append(imgElement);
+                $('#PIDimage').addClass('PIDgraph');
             },
             error: function(xhr, status, error){
                 // Display error message if request fails

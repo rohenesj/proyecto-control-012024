@@ -26,7 +26,6 @@ def plotting(xAxisVector,yAxisVector,titleString,stringXaxis,stringYaxis,stringF
     plt.tick_params(axis='both',which='major',labelsize=14)
     plt.grid(visible=True)
     plt.savefig(stringFileName,dpi=600)
-    plt.show()
 
 def locus(stringFileName):
     plt.grid(True)

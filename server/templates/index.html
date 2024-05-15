@@ -15,38 +15,34 @@
         <div class="row align-items-center"></div>
             <h1 style="text-align: center;font-weight: bold;">Controlador PID</h1>
             <div style="padding-bottom: 5px;" class="row  align-items-center">
-                <div class="col-sm-12 col-md-3 col-lg-3">
+                <div class="col-sm-12 col-md-2 col-lg-2">
                     <button class="btn btn-outline-dark" onclick="openP()">ζ</button>
                     <button class="btn btn-outline-dark" onclick="openK()">K</button>
                     <button class="btn btn-outline-dark" onclick="openL()">☰</button>  
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>ζ: </h>
-                    <h id="zita"></h>
+                    <div id ="zita">ζ: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>tr: </h>
-                    <h id="tr"></h>
+                    <div id ="omega">ω: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>tp: </h>
-                    <h id="tp"></h>
+                    <div id ="tr">tr: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>te: </h>
-                    <h id="te"></h>
+                    <div id ="tp">tp: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>Kp: </h>
-                    <h id="Kp"></h>
+                    <div id ="te">te: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>Ki: </h>
-                    <h id="Ki"></h>
+                    <div id ="Kp">Kp: </div>
                 </div>
                 <div class="col-sm-12 col-md-1 col-lg-1">
-                    <h>Kd: </h>
-                    <h id="Kd"></h>
+                    <div id ="Ki">Ki: </div>
+                </div>
+                <div class="col-sm-12 col-md-1 col-lg-1">
+                    <div id ="Kd">Kd: </div>
                 </div>
             
     </div>
@@ -113,7 +109,9 @@
         </div>
 
     </div>
-    <img class="PIDgraph" src="static/respuestaPI.png" alt="Respuesta del Controlador">
+    <!-- <div id="PIDimage" class="PIDgraph></div> -->
+    <div id="PIDimage" class="PIDgraph"></div>
+    
 
 
 

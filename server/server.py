@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import json
 import param
 import controller
+import graphs
 #import serial_script
 
 app = Flask(__name__)
@@ -29,13 +30,12 @@ def send_data():
         data = f"Datos Recibidos: mode={mode}, mp={mp},tr={tr},tp={tp},te={te}, kp={kp}, ki={ki}, kd={kd}, c={c}"
         parameters = param.calc(mode,mp,tr,tp,te)
         output = controller.calc(mode,c,parameters,pwm)
-        outputFile = open("controllerData.json","w")
-        json.dump(output,outputFile,indent=6)
+        outputFile = open("server/controllerData.json","w")
+        json.dump(output,outputFile,indent=4)
         outputFile.close()
-        # Forward data to the Python script handling serial communication
-        #serial_script.send_data_to_arduino(data)
+
         print(parameters)
-        # Return a response to the client
+        graphs.make()
         return output
 
 if __name__ == '__main__':

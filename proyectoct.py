@@ -1,21 +1,20 @@
 import matplotlib.pyplot as plt
 import control as ct
 import numpy as np
-import plots
+import server.plots as plots
 # ft = 0.00451 / 1.34s + 1
 
-stdst = 1.15
-tau = 1.34
-k = 1.15
+tau = 0.4
+k = 3/255
 time = np.linspace(0,6,500)
 num = [k]
 den = [tau,1]
 W = ct.tf(num,den)
 print(W)
-ref = stdst * np.ones(len(time))
+ref = 255 * np.ones(len(time))
 
-tr, out = ct.step_response(W, time)
-plots.plotting2(tr,out,ref,"Respuesta al Impulso","a","t(s)","PWM","respuestaimp1.png")
+tr, out = ct.forced_response(W,time,ref)
+plots.plotting(tr,out,"Respuesta al Impulso","t(s)","PWM","respuestaimp1.png")
 
 
 ### Validcacion de concatenacion de impulsos
@@ -23,9 +22,9 @@ im = np.ones(75)
 conc = np.concatenate((0*im,0.5*im,0.6*im,im,0.8*im,0.3*im,0.2*im,0.1*im), axis=None)
 time2 = np.linspace(0,60,len(conc))
 step = np.ones(len(time2))
-ref = stdst * np.ones(len(conc))
+ref = k * np.ones(len(conc))
 tr2, out2 = ct.forced_response(W,time2,conc)
-concg = conc * stdst
+concg = conc * k
 
 plots.plotting2(tr2,concg,out2,"Concatenacion","Respuesta","t(s)","v(V)","variosimp.png")
 
@@ -41,10 +40,10 @@ Kp = 3
 
 opl = ct.series(Kp,W)
 csl = ct.feedback(opl,1,-1)
-imp = np.ones(len(time)) * stdst * 0.5
+imp = np.ones(len(time)) * k * 0.5
 
 tr3, out3 = ct.forced_response(csl,time,imp)
-ref = imp * stdst
+ref = imp * k
 plots.plotting2(tr3,imp,out3,"Concatenacion","Respuesta","t(s)","v(V)","respuestakp.png")
 tr31, out31 = ct.forced_response(W,time,imp)
 plots.plotting2(tr31,ref,out31,"Concatenacion","Respuesta","t(s)","v(V)","respuestasinkp.png")
